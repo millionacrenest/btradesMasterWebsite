@@ -1,0 +1,25 @@
+diff --git a/src/Plugin/Block/FBLikeboxBlock.php b/src/Plugin/Block/FBLikeboxBlock.php
+index eb701c3..6635d52 100644
+--- a/src/Plugin/Block/FBLikeboxBlock.php
++++ b/src/Plugin/Block/FBLikeboxBlock.php
+@@ -164,18 +164,11 @@ class FBLikeboxBlock extends BlockBase {
+         'data-adapt-container-width' => $config['adapt_container_width'],
+       ],
+     ];
+-
+-    $render['block']['child'] = [
+-      '#type' => 'container',
+-      '#attributes' => [
+-        'class' => ['fb-xfbml-parse-ignore'],
+-      ],
+-    ];
+-    $render['block']['child']['blockquote'] = [
++    $render['block']['blockquote'] = [
+       '#type' => 'link',
+       '#title' => $config['title'],
+       '#href' => $config['url'],
+-      '#prefix' => '<blockquote cite="' . $config['url'] . '">',
++      '#prefix' => '<blockquote cite="' . $config['url'] . '" class = "fb-xfbml-parse-ignore">',
+       '#suffix' => '</blockquote>',
+     ];
+     $render['#attached']['library'][] = 'fb_likebox/drupal.fb_likebox';
